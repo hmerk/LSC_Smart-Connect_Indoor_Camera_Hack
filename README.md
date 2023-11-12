@@ -1,35 +1,35 @@
 # LSC_Smart-Connect_Indoor_Camera_Hack
 Hack to enable the ONVIF (and RTSP) on the LSC Smart connect indoor camera from Action
 
-## Tuto de base 
+## Grundlegendes Tutorial 
 https://github.com/guino/BazzDoorbell/issues/2
 
-## Rooter la caméra
-- Placer le ficher [ppsFactoryTool.txt](https://github.com/n3odym3/LSC_Smart-Connect_Indoor_Camera_Hack/blob/main/ToRoot) dans une carte SD (FAT32)
-- Setup le SSID et PASSWORD du WiFi
-- Placer la carte SD dans la caméra
-- Lancer la caméra
-- Trouver son adresse ip avec [ONVIF Device Manager](https://sourceforge.net/projects/onvifdm/)
-- Réaliser les requêtes HTTP Suivantes
-  - http://admin:admin@CAMERA.IP:8090/devices/deviceinfo => Réponse : ppstrong-a3-tuya2_lsc-4.0.6.20210311
-  - http://admin:admin@CAMERA.IP:8090/proc/cmdline => Sauvegarder réponse
-  - http://admin:admin@CAMERA.IP:8090/proc/self/root/etc/init.d/S90PPStrong => S'assurer que MTDNUM=5 est bien décommenté (sans #)
-- Si tout est OK éteindre la caméra et récupérer la carte SD
-- Placer les fichier de [ToRoot](https://github.com/n3odym3/LSC_Smart-Connect_Indoor_Camera_Hack/blob/main/ToRoot) sur la SD
+## Rooten der Kamera
+- Legen Sie die Datei [ppsFactoryTool.txt](https://github.com/n3odym3/LSC_Smart-Connect_Indoor_Camera_Hack/blob/main/ToRoot) auf einer SD-Karte ab (FAT32)
+- WLAN-SSID und PASSWORT einrichten
+- Legen Sie die SD-Karte in die Kamera ein
+- Kamera starten
+- Finden Sie Ihre IP-Adresse mit dem [ONVIF Device Manager](https://sourceforge.net/projects/onvifdm/)
+- Stellen Sie die folgenden HTTP-Anforderungen
+  - http://admin:admin@CAMERA.IP:8090/devices/deviceinfo => Antwort : ppstrong-a3-tuya2_lsc-4.0.6.20210311
+  - http://admin:admin@CAMERA.IP:8090/proc/cmdline => Antwort speichern
+  - http://admin:admin@CAMERA.IP:8090/proc/self/root/etc/init.d/S90PPStrong => Stellen Sie sicher, dass MTDNUM=5 nicht auskommentiert ist (ohne #)
+- Wenn alles in Ordnung ist, schalten Sie die Kamera aus und stellen Sie die SD-Karte wieder her
+- Platzieren von [ToRoot](https://github.com/n3odym3/LSC_Smart-Connect_Indoor_Camera_Hack/blob/main/ToRoot) auf der SD-Karte
   - env
   - initrun.sh
   - ppsMmcTool.txt
-- Placer la SD dans la caméra
-- Appuyer sur le boutton reset
-- Brancher la caméra (en gardant le boutton reset enfoncé)
-- Maintenir le boutton enfoncé pendant 5 secondes (la caméra devrait clignotter entre rouge et bleu)
-- La caméra devrait ensuite booter
-- Tester si le hack a fonctionné avec la requête HTTP suivante 
-  - http://admin:admin@CAMERA.IP:8090/proc/self/root/mnt/mmc01/hack => Réponse : done
+- Legen Sie die SD-Karte in die Kamera ein
+- Drücken Sie die Reset-Taste
+- Schließen Sie die Kamera an (halten Sie die Reset-Taste gedrückt)
+- Halten Sie die Taste 5 Sekunden lang gedrückt (die Kamera sollte zwischen rot und blau blinken)
+- Die Kamera sollte dann booten
+- esten Sie, ob der Hack mit der folgenden HTTP-Anfrage funktioniert hat 
+  - http://admin:admin@CAMERA.IP:8090/proc/self/root/mnt/mmc01/hack => Antwort: erledigt
  
-## Hacker la caméra
+## Hacken der Kamera
 
-- Placer les fichier de ToHack sur le carte SD
+- ToHack-Dateien auf SD-Karte ablegen
   - cgi-bin
   - busybox
   - custom.sh
@@ -40,14 +40,14 @@ https://github.com/guino/BazzDoorbell/issues/2
   - passwd
   - set
   - upload.html
-- Copier le fichier ppsapp présent dans /home/app
-- Sassurer que le md5 correspond à celui présent [ici](https://github.com/guino/ppsapp-rtsp/issues/1) (chercher ppstrong-a3-tuya2_lsc-4.0.6.20210311) 
-- Aller sur https://www.marcrobledo.com/RomPatcher.js/
-- Sélectionner le fichier ppsapp
-- Sélectionner le patch téléchargé [ici](https://github.com/guino/ppsapp-rtsp/files/6880255/ppsapp-onvif.zip)
-- Renommer le fichier ppsapp.txt téléchargé après le patch en ppsapp
-- Placer le fichier ppsapp patché à la racine de la carte SD
-- Placer la carte SD dans la caméra et brancher la caméra
-- La caméra devrait booter deux fois !
-- Bravo la caméra est patchée
-- Essayer d'ouvrir le flux RTSP dans ONVIF Device Manager
+- Kopieren Sie die ppsapp-Datei aus /home/app
+- Stellen Sie sicher, dass die MD5 [ici](https://github.com/guino/ppsapp-rtsp/issues/1) (suchen Sie ppstrong-a3-tuya2_lsc-4.0.6.20210311) 
+- Gehe zu https://www.marcrobledo.com/RomPatcher.js/
+- ppsapp-Datei auswählen
+- ppsapp-Datei auswählen [aus](https://github.com/guino/ppsapp-rtsp/files/6880255/ppsapp-onvif.zip)
+- Benennen Sie die heruntergeladene ppsapp.txt-Datei nach dem Patch in ppsapp um
+- Platzieren Sie die gepatchte ppsapp-Datei im Stammverzeichnis der SD-Karte
+- Legen Sie die SD-Karte in die Kamera ein und schließen Sie die Kamera an
+- Die Kamera sollte zweimal booten!
+- Bravo, die Kamera ist gepatcht
+- Versuchen Sie, den RTSP-Stream im ONVIF-Geräte-Manager zu öffnen.
