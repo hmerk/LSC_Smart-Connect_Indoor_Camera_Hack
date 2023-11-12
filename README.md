@@ -24,7 +24,7 @@ https://github.com/guino/BazzDoorbell/issues/2
 - Schließen Sie die Kamera an (halten Sie die Reset-Taste gedrückt)
 - Halten Sie die Taste 5 Sekunden lang gedrückt (die Kamera sollte zwischen rot und blau blinken)
 - Die Kamera sollte dann booten
-- esten Sie, ob der Hack mit der folgenden HTTP-Anfrage funktioniert hat 
+- Testen Sie, ob der Hack mit der folgenden HTTP-Anfrage funktioniert hat 
   - http://admin:admin@CAMERA.IP:8090/proc/self/root/mnt/mmc01/hack => Antwort: erledigt
  
 ## Hacken der Kamera
