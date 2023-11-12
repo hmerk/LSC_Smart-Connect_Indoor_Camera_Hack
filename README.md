@@ -1,5 +1,5 @@
 # LSC_Smart-Connect_Indoor_Camera_Hack
-Hack to enable the ONVIF (and RTSP) on the LSC Smart connect indoor camera from Action
+Hack zum Aktivieren von ONVIF (und RTSP) auf der LSC Smart Connect Innenkamera von Action
 
 ## Grundlegendes Tutorial 
 https://github.com/guino/BazzDoorbell/issues/2
